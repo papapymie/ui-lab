@@ -1,27 +1,28 @@
 # Automated UI Testing with Selenium and Cypress (ui-lab)
 
-This repository contains the automated UI testing laboratory for **ITDS362 Software Quality Assurance and Testing**.
+คลังข้อมูลนี้จัดทำขึ้นสำหรับปฏิบัติการทดสอบส่วนต่อประสานกับผู้ใช้แบบอัตโนมัติ (Automated UI Testing) รายวิชา **ITDS362 Software Quality Assurance and Testing**
 
-## Chosen Tool Parts
-The two tool parts chosen for this lab are:
+## เครื่องมือที่เลือกทำ (Chosen Tool Parts)
+ในปฏิบัติการนี้ได้เลือกเครื่องมือ 2 ส่วนตามข้อกำหนด ได้แก่:
 - **Part 2: Selenium WebDriver in Java** (`selenium-java/`)
 - **Part 4: Cypress** (`cypress/`)
 
 ---
 
-## Directory Overview and Execution Commands
+## รายละเอียดแต่ละโฟลเดอร์และคำสั่งรันชุดทดสอบ (Execution Commands)
 
 ### 1. `selenium-java/`
-- **Description**: Contains Selenium WebDriver 4.52.0 tests using Java 21, JUnit Jupiter 5 (6.1.3), and Maven. It implements automated UI tests for the Selenium Web Form and the QuickPizza scenario (QP-01) following the Page Object Model (POM) pattern (`HomePage.java` and `AdminPage.java`).
-- **Run Command**:
+- **คำอธิบายโฟลเดอร์**: ประกอบด้วยชุดการทดสอบด้วย Selenium WebDriver 4.52.0 บนภาษา Java 21, JUnit Jupiter 5 (6.1.3) และบริหารจัดการด้วย Maven ครอบคลุมการทดสอบ Selenium Web Form และการทดสอบสถานการณ์ QuickPizza (QP-01) โดยออกแบบตามรูปแบบโครงสร้าง Page Object Model (POM) ผ่านคลาส `HomePage.java` และ `AdminPage.java`
+- **คำสั่งรันการทดสอบ**:
   ```bash
   mvn test -Dheadless=true
   ```
-  *(Requires `CHROMEDRIVER` environment variable set to the ChromeDriver binary path)*
+  *(หมายเหตุ: ต้องมีการตั้งค่าตัวแปรสภาพแวดล้อม `CHROMEDRIVER` ชี้ไปยังที่อยู่ไฟล์ ChromeDriver binary)*
 
 ### 2. `cypress/`
-- **Description**: Contains Cypress 16.2.1 end-to-end tests written in JavaScript for testing the Selenium Web Form (`web-form.cy.js`) and the QuickPizza end-to-end user scenario (`pizza-scenario.cy.js`). It includes network interception (`cy.intercept`), custom commands (`cy.adminLogin`), automatic retrying waits, and automatic video/screenshot capture.
-- **Run Command**:
+- **คำอธิบายโฟลเดอร์**: ประกอบด้วยชุดการทดสอบ End-to-End ด้วย Cypress 16.2.1 บนภาษา JavaScript สำหรับทดสอบ Selenium Web Form (`web-form.cy.js`) และการทดสอบระบบ QuickPizza ตั้งแต่ขั้นตอนของลูกค้าจนถึงผู้ดูแลระบบ (`pizza-scenario.cy.js`) รองรับการดักจับตรวจสอบ Network Requests (`cy.intercept`), คำสั่งกำหนดเอง (`cy.adminLogin`), กลไกการรอ Element อัตโนมัติ ตลอดจนการบันทึกภาพถ่ายหน้าจอและวิดีโอการทดสอบ
+- **คำสั่งรันการทดสอบ**:
   ```bash
-  npx cypress run --browser chrome
+  npx cypress run
   ```
+  *(หรือใช้ `npx cypress run --browser chrome`)*
